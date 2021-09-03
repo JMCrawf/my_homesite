@@ -12,6 +12,27 @@ body {
   z-index: 3;
 }
 
+@keyframes fadeInRight {
+   0% {
+      opacity: 0;
+      transform: translateX(-80px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+} 
+
+@keyframes fadeToBottom {
+   0% {
+      opacity: 0;
+      transform: translateY(-80px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+} 
 
 #hero {
   min-height: 100vh;
@@ -29,6 +50,7 @@ body {
   bottom: 0;
   right: 0;
   z-index: -1;
+  
   
 
   // Set position sticky so the jumbotron stays fixed while you scroll.
@@ -49,28 +71,36 @@ body {
     font-weight: 700;
     margin-bottom: 3.2rem;
     text-align: left;
+    animation: fadeInRight 1s;
 
     @include respond(tab-land) {
       font-size: 4rem;
+      animation: fadeInRight 1s;
     }
     @include respond(tab-port) {
       font-size: 3.6rem;
       text-align: center;
+      animation: fadeToBottom 1s;
     }
     @include respond(phone) {
       font-size: 3rem;
       line-height: 1.5;
+      animation: fadeToBottom 1s;
     }
     @include respond(phone-xs) {
+      padding-top: 40px;
       font-size: 2.8rem;
+      animation: fadeToBottom 1s;
     }
   }
 
   .hero-cta {
     display: flex;
+    animation: fadeInRight 1s;
 
     @include respond(tab-port) {
       justify-content: center;
+      animation: fadeToBottom 1s;
     }
 
     & a {
@@ -78,6 +108,7 @@ body {
 
       @include respond(phone) {
         font-size: 2rem;
+        animation: fadeToBottom 1s;
       }
     }
   }
